@@ -1,6 +1,5 @@
-// Fig. 3.8: Account.java
-// Account class with a double instance 
-// and methods to set and get its value
+// Excercise 3.11
+// Account class with 'withdraw' method
 
 public class Account {
 	private String name; // instance variable
@@ -27,6 +26,15 @@ public class Account {
 	// method returns the account blance
 	public double getBalance() {
 		return balance;
+	}
+
+	public void withdraw(double withdrawAmount) {
+		if ((balance - withdrawAmount) >= 0) {
+			balance = balance - withdrawAmount;
+		}
+		if ((balance - withdrawAmount) < 0 ) {
+			System.out.println("Withdrawl amount exceeded account balance.\n");
+		}
 	}
 
 	// method to set the name in the object
