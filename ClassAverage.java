@@ -1,5 +1,5 @@
-// Fig. 4.8: ClassAverage.java
-// Solving the class-average problem using counter-controlled iteration.
+// Fig. 4.10: ClassAverage.java
+// Solving the class-average problem using sentinel controled iteration.
 import java.util.Scanner; // program uses class Scanner
 
 public class ClassAverage {
@@ -9,21 +9,36 @@ public class ClassAverage {
 
 		// initialize phase
 		int total = 0; // initialize sumf of grades entered by the user
-		int gradeCounter = 1; // initialize # of grade to be entered next
+		int gradeCounter = 0; // initialize # of grade to be entered next
 
-		// processing phase uses counter-controlled iteration
-		while (gradeCounter <= 10) { // loop 10 times
-			System.out.print("Enter grade: "); // prompt
-			int grade = input.nextInt(); // input next grade
+		// processing phase 
+		// prompt for input and read grade from user
+		System.out.print("Enter grade or -1 to quit: ");
+		int grade = input.nextInt();
+
+		// loop until sentinel value read from user
+		while (grade != -1) { 
 			total = total + grade; // add grade to total
 			gradeCounter = gradeCounter + 1; // increment counter by 1
+
+			//prompt for input and read next grade from user
+			System.out.print("Enter grade or -1 to quit: ");
+			grade = input.nextInt();
 		}
 
 		// termination phase
-		int average = total / 10; // integer division yields integer result
+		// if user entered at least one grade...
+		if (gradeCounter != 0) {
+			// use number with decimal point to calculate average of grades
+			double average = (double) total / gradeCounter;
 
-		// display total and average of grades
-		System.out.printf("%nTotal of all 10 grades is %d%n", total);
-		System.out.printf("Class average is %d%n", average);
+			// display total and average (with two digits of precision)
+			System.out.printf("%nTotal of the %d grades entered is %d%n",
+				gradeCounter, total);
+			System.out.printf("Class average is %.2f%n", average);
+		}
+		else { // no grades were entered, so output appropriate message
+			System.out.println("No grades were entered");
+		}
 	}
 }
