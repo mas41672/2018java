@@ -23,7 +23,24 @@ instructor!"
 
 *** Let's begin the top-down, stepwise refinement ***
 
-Initialize variables
-Input the 10 exam results, and count passes and failures
-Print summary of the exam results and decide whether a bonus should
-be paid.
+Initialize passes o zero
+Initialize failures to zero
+Initialize student counter to one
+
+While student counter is less than or equal to 10
+	Prompt the user to enter the next exam result
+	Input the next exam result
+
+	If the student passed
+		Add one to passes
+	Else
+		Add one to failures
+
+	Add one to student counter
+
+Print the number of passes
+Print the number of failures
+If more than eight students passed
+	Print "Bonus to instructor!"
+
+
