@@ -1,46 +1,42 @@
-/* Problem Statement
 
-A college offers a course that prepares students for the state
-licensing exam for real-estate brokers. Last year, ten of the
-students who completed this course took the exam. You've been
-asked to write a program to summarize the results. You've been
-given a list of the 10 students. Next to each name is written
-a 1 if the student passed the exam or a 2 if the student failed.
+// Fig. 4.12: Analysis.java
+// Analysis of examination results using nested control statements
+import java.util.Scanner; // class use class Scanner
 
-Your program should analyze the results of the exam as follows:
+public class Analysis {
+	public static void main(String[] args) {
+		// create Scanner to obtain input from command window
+		Scanner input = new Scanner(System.in);
 
-1. Input each test result (i.e. a 1 or a 2). Display the message
-"Enter result" on the screen each time the program requests 
-another test result.
+		//initializing variables in declarations
+		int passes = 0;
+		int failures = 0;
+		int studentCounter = 1;
 
-2. Count the number of test result of each type.
+		//process 10 students using the counter-controlled loop
+		while (studentCounter <= 10) {
+			// prompt user for input and obtain value from user
+			System.out.print("Enter result (1 = pass, 2 = fail): ");
+			int result = input.nextInt();
 
-3. Display a summery of the test results, indicating the number
-of students who passed and the number who failed.
+			// if...else is nested in the while statement
+			if (result == 1) {
+				passes = passes + 1;
+			}
+			else {
+				failures = failures + 1;
+			}
 
-4. If more than eight students passed the exam, print "Bonus to
-instructor!"
+			// increment studentCounter so loop eventually terminates
+			studentCounter = studentCounter + 1;
+		}
 
-*** Let's begin the top-down, stepwise refinement ***
+		// termination phase; prepare and display results
+		System.out.printf("Passed: %d%nFailed: %d%n", passes, failures);
 
-Initialize passes o zero
-Initialize failures to zero
-Initialize student counter to one
-
-While student counter is less than or equal to 10
-	Prompt the user to enter the next exam result
-	Input the next exam result
-
-	If the student passed
-		Add one to passes
-	Else
-		Add one to failures
-
-	Add one to student counter
-
-Print the number of passes
-Print the number of failures
-If more than eight students passed
-	Print "Bonus to instructor!"
-
-
+		// dtermine whether more than 8 students passed
+		if (passes > 8) {
+			System.out.println("Bonus to instructor!");
+		}
+	}
+}
