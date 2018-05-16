@@ -23,4 +23,7 @@ instructor!"
 
 *** Let's begin the top-down, stepwise refinement ***
 
-Analyze exam results and decide whether a bonus should be paid
+Initialize variables
+Input the 10 exam results, and count passes and failures
+Print summary of the exam results and decide whether a bonus should
+be paid.
