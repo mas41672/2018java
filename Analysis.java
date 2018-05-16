@@ -21,14 +21,14 @@ public class Analysis {
 
 			// if...else is nested in the while statement
 			if (result == 1) {
-				passes = passes + 1;
+				passes += 1;
 			}
 			else {
-				failures = failures + 1;
+				failures += 1;
 			}
 
 			// increment studentCounter so loop eventually terminates
-			studentCounter = studentCounter + 1;
+			studentCounter += 1;
 		}
 
 		// termination phase; prepare and display results
