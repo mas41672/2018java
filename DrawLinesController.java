@@ -1,5 +1,5 @@
 // Fig. 4.26: DrawLinesController.java
-// Using strokeLine to draw the fanning
+// Using strokeLine to draw fans from all corners
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;  // Canvas provides the drawing area
@@ -26,6 +26,29 @@ public class DrawLinesController {
     		
     		counter++;
     	}
-    }
 
+    	counter = 0;
+
+    	while (counter <= 20) {
+    		gc.strokeLine(0, canvas.getHeight(), deltaX * counter, deltaY * counter);
+
+    		counter++;
+    	}
+
+    	counter = 0;
+
+    	while (counter <= 20) {
+    		gc.strokeLine(canvas.getWidth(), 0, deltaX * counter, deltaY * counter);
+
+    		counter++;
+    	}
+
+    	counter = 0;
+
+    	while (counter <= 20) {
+    		gc.strokeLine(canvas.getWidth(), canvas.getHeight(), deltaX * counter, canvas.getHeight() - deltaY * counter);
+
+    		counter++;
+    	}
+    }
 }
