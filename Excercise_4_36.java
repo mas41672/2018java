@@ -1,4 +1,4 @@
-// Excercise 4.36: Sides of a Triangel
+// Excercise 4.37: Sides of a Right Triangle
 import java.util.Scanner;
 
 public class Excercise_4_36 {
@@ -6,15 +6,15 @@ public class Excercise_4_36 {
 		Scanner input = new Scanner(System.in);
 
 		System.out.print("Please enter three triangle side: ");
-		double a = input.nextDouble();
+		int a = input.nextInt();
 		System.out.print("Please enter the second triangle side: ");
-		double b = input.nextDouble();
+		int b = input.nextInt();
 		System.out.print("Please enter the third triangle side: ");
-		double c = input.nextDouble();
+		int c = input.nextInt();
 
-		double largest = 0.0;
-		double secondLargest = 0.0;
-		double thirdLargest = 0.0;
+		int largest = 0;
+		int secondLargest = 0;
+		int thirdLargest = 0;
 
 		if (largest < a) {
 			largest = a;
@@ -25,7 +25,7 @@ public class Excercise_4_36 {
 		if (largest < c) {
 			largest = c;
 		}
-
+		System.out.printf("%d%n", largest);
 		if (largest == a) {
 			if ( c <= b) {
 				secondLargest = b;
@@ -54,16 +54,18 @@ public class Excercise_4_36 {
 				secondLargest = b;
 			}
 			else {
-				largest = b;
-				secondLargest = a;
+				secondLargest = b;
+				thirdLargest = a;
 			}
 		}
+		System.out.printf("%d%n", secondLargest);
+		System.out.printf("%d%n", thirdLargest);
 
-		if (secondLargest + thirdLargest > largest){
-			System.out.println("This could be the sides of a triangle.");
+		if (secondLargest*secondLargest + thirdLargest*thirdLargest == largest*largest){
+			System.out.println("This could be the sides of a right triangle.");
 		}
 		else {
-			System.out.println("This aren't the sides of a triangle.");
+			System.out.println("This aren't the sides of a right triangle.");
 		}
 	}
 }
