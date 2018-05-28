@@ -20,7 +20,7 @@ public class Excercise_4_31 {
 			// restart the digits and denominator
 			denominator = 1;
 			digits = 0;
-			while (!(number / denominator == 0)) {
+			while (number / denominator != 0) {
 				denominator *= 10;
 				digits++;
 			}
